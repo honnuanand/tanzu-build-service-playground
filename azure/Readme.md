@@ -235,7 +235,7 @@
 1. ### Create a Credentials File
     (Creating this file in the /tmp folder is important for the 0.1 version of tbs)
 
-        ```anandrao at Anands-MBP-3 in ~/pivotal/repos/k8s-playground/tanzu/tbs/azure (master●)
+      ```anandrao at Anands-MBP-3 in ~/pivotal/repos/k8s-playground/tanzu/tbs/azure (master●)
         $ bat /tmp/credentials.yml
         ──────┬───────────────────────────────────────────────────────────────
               │ File: /tmp/credentials.yml
@@ -251,7 +251,7 @@
           9   │      path: "/cnab/app/cert/ca.crt"
         ──────┴────────────────────────────────────────────────────────────────
 
-        ```
+      ```
 
 
 
