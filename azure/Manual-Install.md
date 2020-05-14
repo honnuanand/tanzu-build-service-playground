@@ -232,26 +232,26 @@
         Switched to context "tbs-on-aks".
         ```
 
-1. ### Create a Credentials File
-    (Creating this file in the /tmp folder is important for the 0.1 version of tbs)
+    3. ### Create a Credentials File
+        (Creating this file in the /tmp folder is important for the 0.1 version of tbs)
 
-      ```anandrao at Anands-MBP-3 in ~/pivotal/repos/k8s-playground/tanzu/tbs/azure (master●)
-        $ bat /tmp/credentials.yml
-        ──────┬───────────────────────────────────────────────────────────────
-              │ File: /tmp/credentials.yml
-        ──────┼───────────────────────────────────────────────────────────────
-          1   │ name: build-service-credentials
-          2   │ credentials:
-          3   │  - name: kube_config
-          4   │    source:
-          5   │      path: "/Users/anandrao/.kube/config"
-          6   │    destination:
-          7   │      path: "/root/.kube/config"
-          8   │    destination:
-          9   │      path: "/cnab/app/cert/ca.crt"
-        ──────┴────────────────────────────────────────────────────────────────
-
-      ```
+        ```anandrao at Anands-MBP-3 in ~/pivotal/repos/k8s-playground/tanzu/tbs/azure (master●)
+          $ bat /tmp/credentials.yml
+          ──────┬───────────────────────────────────────────────────────────────
+                │ File: /tmp/credentials.yml
+          ──────┼───────────────────────────────────────────────────────────────
+            1   │ name: build-service-credentials
+            2   │ credentials:
+            3   │  - name: kube_config
+            4   │    source:
+            5   │      path: "/Users/anandrao/.kube/config"
+            6   │    destination:
+            7   │      path: "/root/.kube/config"
+            8   │    destination:
+            9   │      path: "/cnab/app/cert/ca.crt"
+          ──────┴────────────────────────────────────────────────────────────────
+          
+        ```
 
 
 
