@@ -221,26 +221,6 @@
         $ pb image builds araotbs.azurecr.io/spring-k8s
         $ pb image logs araotbs.azurecr.io/spring-k8s -b 2 -f
         ```    
-      
-
-
-
-source:
-  git:
-    url: https://github.com/honnuanand/spring-k8s
-    revision: master
-build:
-  env:
-  - name: name
-    value: dev
-image:
-  tag: araotbs.azurecr.io/spring-k8s
-
-
-
-registry: https://araotbs.azurecr.io # make sure to add the https://
-username: araotbs
-password: 6jv=BDK55Cn1Nxr6XsbIOiIAnHBJpsau
 
 
 
