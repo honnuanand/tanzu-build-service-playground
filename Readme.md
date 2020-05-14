@@ -4,7 +4,7 @@ This Repository is an attempt to capture the Install process as outlined by the 
 
 You can follow the install on k8s from different clooud and on-prem providers : 
 
-1. TBS on [AKS](azure) ( Azure ) with ACR
+1. TBS on [AKS](azure/Manual-Install.md) ( Azure ) with ACR
 1. TKG (on AWS) with Harbor
 1. TKG (on vSphere) with Harbor
 1. TBS on EKS with ECR
