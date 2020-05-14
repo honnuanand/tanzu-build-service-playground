@@ -8,8 +8,24 @@ provider "azurerm" {
 ###########################
 ## Variables
 ###########################
-variable "resource-group-name" {
+variable "resource_grp_name" {
+  default = "tbs-rg"
+}
+variable "cluster_name" {
+  default = "tbs-cluster"
+}
+variable "dns_prefix" {
+  default = "tbs"
+}
+variable "nodepool_name" {
+  default = "tbsnp" # special characters not allowed 
+}
 
+variable "vm_size" {
+  default = "Standard_D2_v2"
+}
+variable "environment_name" {
+  default = "demo" # can have dev / stage / prod 
 }
 
 
@@ -21,21 +37,21 @@ variable "resource-group-name" {
 ###########################
 ## Resources 
 ###########################
-resource "azurerm_resource_group" "${var.resource_group_name}" {
-  name     = "tbs-resource-grp"
+resource "azurerm_resource_group" "resource_grp_name" {
+  name     = var.resource_grp_name
   location = "westus2"
 }
 
-resource "azurerm_kubernetes_cluster" "tbs-cluster" {
-  name                = "tbs-cluster"
-  location            = azurerm_resource_group.tbs-resource-grp.location
-  resource_group_name = azurerm_resource_group.tbs-resource-grp.name
-  dns_prefix          = "tbs"
+resource "azurerm_kubernetes_cluster" "tbs_cluster" {
+  name                = var.cluster_name
+  location            = azurerm_resource_group.resource_grp_name.location
+  resource_group_name = azurerm_resource_group.resource_grp_name.name
+  dns_prefix          = var.dns_prefix
 
   default_node_pool {
-    name       = "tbs"
+    name       = var.nodepool_name
     node_count = 3
-    vm_size    = "Standard_D2_v2"
+    vm_size    = var.vm_size
   }
 
   identity {
@@ -43,7 +59,7 @@ resource "azurerm_kubernetes_cluster" "tbs-cluster" {
   }
 
   tags = {
-    Environment = "Demo" # can have dev / stage / prod 
+    Environment = var.environment_name 
   }
 }
 
@@ -52,9 +68,9 @@ resource "azurerm_kubernetes_cluster" "tbs-cluster" {
 ###########################
 
 output "client_certificate" {
-  value = azurerm_kubernetes_cluster.tbs-cluster.kube_config.0.client_certificate
+  value = azurerm_kubernetes_cluster.tbs_cluster.kube_config.0.client_certificate
 }
 
 output "kube_config" {
-  value = azurerm_kubernetes_cluster.tbs-cluster.kube_config_raw
+  value = azurerm_kubernetes_cluster.tbs_cluster.kube_config_raw
 }
