@@ -5,28 +5,6 @@ provider "azurerm" {
   version         = ">= 2.0"
   features {}
 }
-###########################
-## Variables
-###########################
-variable "resource_grp_name" {
-  default = "tbs-rg"
-}
-variable "cluster_name" {
-  default = "tbs-cluster"
-}
-variable "dns_prefix" {
-  default = "tbs"
-}
-variable "nodepool_name" {
-  default = "tbsnp" # special characters not allowed 
-}
-
-variable "vm_size" {
-  default = "Standard_D2_v2"
-}
-variable "environment_name" {
-  default = "demo" # can have dev / stage / prod 
-}
 
 
 ###########################
@@ -61,16 +39,12 @@ resource "azurerm_kubernetes_cluster" "tbs_cluster" {
   tags = {
     Environment = var.environment_name 
   }
+
 }
 
-###########################
-## OUTPUTS
-###########################
-
-output "client_certificate" {
-  value = azurerm_kubernetes_cluster.tbs_cluster.kube_config.0.client_certificate
+resource "local_file" "kubeconfig" {
+    content     = azurerm_kubernetes_cluster.tbs_cluster.kube_config_raw
+    filename = "azk8s"  #${path.module}/foo.bar"
 }
 
-output "kube_config" {
-  value = azurerm_kubernetes_cluster.tbs_cluster.kube_config_raw
-}
+
