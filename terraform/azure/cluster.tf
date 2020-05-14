@@ -15,15 +15,15 @@ provider "azurerm" {
 ###########################
 ## Resources 
 ###########################
-resource "azurerm_resource_group" "resource_grp_name" {
+resource "azurerm_resource_group" "resource_grp" {
   name     = var.resource_grp_name
   location = "westus2"
 }
 
 resource "azurerm_kubernetes_cluster" "tbs_cluster" {
   name                = var.cluster_name
-  location            = azurerm_resource_group.resource_grp_name.location
-  resource_group_name = azurerm_resource_group.resource_grp_name.name
+  location            = azurerm_resource_group.resource_grp.location
+  resource_group_name = azurerm_resource_group.resource_grp.name
   dns_prefix          = var.dns_prefix
 
   default_node_pool {
@@ -42,9 +42,12 @@ resource "azurerm_kubernetes_cluster" "tbs_cluster" {
 
 }
 
-resource "local_file" "kubeconfig" {
-    content     = azurerm_kubernetes_cluster.tbs_cluster.kube_config_raw
-    filename = "azk8s"  #${path.module}/foo.bar"
-}
+
+
+
+
+
+
+
 
 

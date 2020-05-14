@@ -1,0 +1,10 @@
+source:
+  git:
+    url: https://github.com/honnuanand/spring-k8s
+    revision: master
+build:
+  env:
+  - name: name
+    value: dev
+image:
+  tag: araotbs.azurecr.io/spring-k8s
