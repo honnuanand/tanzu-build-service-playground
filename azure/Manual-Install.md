@@ -232,7 +232,7 @@
         Switched to context "tbs-on-aks".
         ```
 
-    3. ### Create a [Credentials File](configs/azure-manager-disk.yaml) for duffle
+    3. ### Create a [Credentials File](/configs/azure-manager-disk.yaml) for duffle
         (Creating this file in the /tmp folder is important for the 0.1 version of tbs)
 
         ```anandrao at Anands-MBP-3 in ~/pivotal/repos/k8s-playground/tanzu/tbs/azure (master●)
