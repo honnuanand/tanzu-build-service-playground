@@ -159,7 +159,7 @@
             --set kubernetes_env=tbs-on-aks \
             --set docker_registry=araotbs.azurecr.io \
             --set registry_username="araotbs" \
-            --set registry_password="6jv=BDK55Cn1Nxr6XsbIOiIAnHBJpsau" \
+            --set registry_password="SNIPPPP" \
             --set custom_builder_image="araotbs.azurecr.io/build-service/default-builder" \
             -f /tmp/build-service-0.1.0.tgz \
             -m /tmp/relocated.json
